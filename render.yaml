@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: rubikon-site
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn run:app
+    envVars:
+      - key: SECRET_KEY
+        value: rubikon_sistema_seguro_2025
+      - key: DATABASE_URL
+        value: sqlite:///rubikonsa.db

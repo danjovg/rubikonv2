@@ -1,0 +1,11 @@
+{% extends 'partials/base.html' %}
+{% block content %}
+<h2 class="text-2xl font-bold mb-4">Formulario de Contacto</h2>
+<form method="POST" class="space-y-4">
+  {{ form.hidden_tag() }}
+  <div>{{ form.nombre.label }} {{ form.nombre(class="w-full p-2 border rounded") }}</div>
+  <div>{{ form.correo.label }} {{ form.correo(class="w-full p-2 border rounded") }}</div>
+  <div>{{ form.mensaje.label }} {{ form.mensaje(class="w-full p-2 border rounded") }}</div>
+  <button class="bg-blue-600 text-white px-4 py-2 rounded">{{ form.submit.label }}</button>
+</form>
+{% endblock %}

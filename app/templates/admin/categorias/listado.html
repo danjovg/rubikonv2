@@ -1,0 +1,25 @@
+{% extends 'partials/base.html' %}
+{% block content %}
+<h2 class="text-2xl font-bold mb-4">Categorías de Técnicos</h2>
+
+<table class="table-auto w-full border">
+    <thead>
+        <tr class="bg-gray-100">
+            <th class="border px-4 py-2">ID</th>
+            <th class="border px-4 py-2">Nombre</th>
+            <th class="border px-4 py-2">Descripción</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for categoria in categorias %}
+        <tr>
+            <td class="border px-4 py-2">{{ categoria.id }}</td>
+            <td class="border px-4 py-2">{{ categoria.nombre }}</td>
+            <td class="border px-4 py-2">{{ categoria.descripcion }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{{ url_for('admin_categorias_tecnicos.nueva_categoria') }}" class="inline-block mt-4 bg-green-600 text-white px-4 py-2 rounded">Nueva categoría</a>
+{% endblock %}

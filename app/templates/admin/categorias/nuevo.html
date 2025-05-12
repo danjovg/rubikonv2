@@ -1,0 +1,20 @@
+{% extends 'partials/base.html' %}
+{% block content %}
+<h2 class="text-2xl font-bold mb-4">Nueva categoría técnica</h2>
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+
+    <div class="mb-4">
+        <label class="block font-semibold">Nombre:</label>
+        {{ form.nombre(class="w-full p-2 border rounded") }}
+    </div>
+
+    <div class="mb-4">
+        <label class="block font-semibold">Descripción:</label>
+        {{ form.descripcion(class="w-full p-2 border rounded") }}
+    </div>
+
+    <button class="bg-blue-600 text-white px-4 py-2 rounded">{{ form.submit.label.text }}</button>
+</form>
+{% endblock %}
