@@ -4,6 +4,7 @@ from .database import db
 from flask_login import LoginManager
 from flask_bcrypt import Bcrypt
 from flask_migrate import Migrate
+from . models import Usuario
 
 
 login_manager = LoginManager()
@@ -20,6 +21,10 @@ def create_app():
     migrate.init_app(app, db)
 
     login_manager.login_view = 'auth.login'
+
+    @login_manager.user_loader
+    def load_user(user_id):
+        return Usuario.query.get(int(user_id))
 
     # Blueprints
     from .routes.public import public_bp
